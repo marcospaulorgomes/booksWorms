@@ -1,0 +1,205 @@
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adiciona espaçamento entre os botões */
+}
+
+.toggle-button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-button.selected {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.1);
+    border-color: #007bff;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3; /* Ajuste a cor do hover */
+    color: white;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.filter-group,
+.aggregation-group,
+.group-by-group,
+.order-by-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre os elementos */
+    margin-bottom: 10px;
+}
+
+.filter-group select,
+.filter-group input[type="text"],
+.aggregation-group select,
+.group-by-group select,
+.order-by-group select {
+    flex-grow: 1;
+}
+
+.filter-group button,
+.aggregation-group .remove-button,
+.group-by-group .remove-button,
+.order-by-group .remove-button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-group button:hover,
+.aggregation-group .remove-button:hover,
+.group-by-group .remove-button:hover,
+.order-by-group .remove-button:hover {
+    background-color: #c82333;
+}
+
+.add-filter-button,
+.add-aggregation-button,
+.add-group-by-button,
+.add-order-by-button {
+    padding: 5px 10px;
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.add-filter-button:hover,
+.add-aggregation-button:hover,
+.add-group-by-button:hover,
+.add-order-by-button:hover {
+    background-color: #5a3eab;
+}
+
+.select-delivery {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.report-form {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+
+@media (max-width: 480px) {
+    
+    h1, h2, .page-title {
+        text-align: center;
+        margin-top: 60vh; 
+    }
+}
+
+.having-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.having-group select,
+.having-group input[type="text"],
+.having-group input[type="date"] {
+    flex-grow: 1;
+}
+
+.having-group input[type="text"],
+.having-group input[type="date"] {
+    margin: 0;
+}
+
+.having-group button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.having-group button:hover {
+    background-color: #c82333;
+}
+
+.add-having-button {
+    padding: 5px 10px;
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.add-having-button:hover {
+    background-color: #5a3eab;
+}
+
+.remove-button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.remove-button:hover {
+    background-color: #c82333;
+}

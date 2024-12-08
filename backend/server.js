@@ -36,6 +36,48 @@ app.post('/json', async (req, res) => {
     }
 });
 
+
+app.post('/csv', async (req, res) => {
+    try {
+         const prisma = new PrismaClient();
+        console.log('Request body:', req.body); // Adiciona log do corpo da requisição
+
+        const response = await selectQuery(req.body.selectedTables, prisma);
+        
+        //console.log('Teste')
+        // const data = [
+        //    { name: 'John', age: 30, city: 'New York' },
+        //    { name: 'Jane', age: 25, city: 'San Francisco' }
+        //  ];
+
+        await prisma.$disconnect().catch(async (e) => {
+            console.error(e);
+            await prisma.$disconnect();
+            process.exit(1);
+        });
+
+        response = jsonToCSV(data);
+        // fs.readFile('query_response.csv', 'utf8', (err, data) => {
+        //     if (err) {
+        //         console.error(err);
+        //         res.status(500).send('Erro ao ler o arquivo CSV.');
+        //     } else {
+        //         res.setHeader('Content-Type', 'text/csv');
+        //         res.send(data);
+        //     }
+        // });
+
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Disposition', 'attachment; filename="query_response.csv"');
+        console.log('Response CSV:', response); // Debugging
+        res.send(response)
+    } catch (error) {
+        console.log('Error:', error);
+        res.status(500).send('Error: ' + error.toString());
+    }
+});
+
+/*
 app.post('/csv', async (req, res) => {
     try {
         const prisma = new PrismaClient();
@@ -64,6 +106,7 @@ app.post('/csv', async (req, res) => {
         res.status(500).send('Error: ' + error.toString());
     }
 });
+*/
 
 app.get('*', (req, res) => {
     res.status(404).json({ error: 'Página não encontrada!' });

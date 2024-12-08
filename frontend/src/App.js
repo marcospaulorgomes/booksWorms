@@ -28,8 +28,17 @@ const App = () => {
 
         const blob = await responseCsv.blob();
         const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.csv'; // Nome do arquivo
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        
+        /*
         setCsvData(url);
         setShowCsvDownload(true);
+        */
 
         if (formData.deliveryFormat === 'screen_csv') {
           const responseJson = await fetch('http://localhost:8080/json', {
